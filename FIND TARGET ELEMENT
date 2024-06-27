@@ -1,0 +1,34 @@
+Input: nums = [-1,0,2,4,6,8], target = 4
+
+Output: 3
+
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        l,r=0 ,len(nums)-1
+        while l<=r:
+            m = l + ((r - l) // 2)
+            if nums[m] > target:
+                r = m - 1
+            elif nums[m] < target:
+                l = m + 1
+            else:
+                return m
+        return -1
+
+ERRORS IN BINARY SEARCH:
+
+1.)
+
+elif (written if for 2nd loop)
+
+write arrays on loop index in loop (elif nums(L) < target : L = m+ 1
+
+return correctly i returned True(read question)             else: return m
+
+1st > then < , while no need of brackets , mid = not l+r /2 it is m = l + ((r - l) // 2)  # (l + 
+
+main : used () in place of []
+            
+
+        
