@@ -1,0 +1,32 @@
+Input: piles = [1,4,3,2], h = 9
+
+Output: 2
+
+EXPLANATION : Target is 9 u shd complete all above under 9 hrs (ex =2 : 1/2 =1 , 4/2 = 3, 3/2 = 2 , 2/2 =1     1 + 3 + 2 + 1 = 7  , 7 is under 9 so happy)
+
+Min always ========= 1
+Max always ========= biggest ele in array 
+
+CODE:
+
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        l, r = 1, max(piles)
+        res = r
+
+        while l <= r:
+            k = (l + r) // 2
+
+            totalTime = 0
+            for p in piles:
+                totalTime += math.ceil(float(p) / k)
+            if totalTime <= h:
+                res = k
+                r = k - 1
+            else:
+                l = k + 1
+        return res
+
+ERROS I DONE : 
+else:
+c+ = (piles[i] / k ) + 1
